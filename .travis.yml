@@ -7,3 +7,13 @@ before_script:
 
 script:
   - docker run -e CI=true olegvitko/docker-react npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-central-1"
+  app: "UdemyTestApp"
+  env: "UdemyTestApp-env"
+  bucket_name: "elasticbeanstalk-eu-central-1-061996120074"
+  bucket_path: "UdemyTestApp"
+  on:
+    branch: master
